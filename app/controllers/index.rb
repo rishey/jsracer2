@@ -24,9 +24,10 @@ end
 
 
 post '/endgame' do
-  puts params.inspect
+ puts params.inspect
   @game = Game.new
-  @game.winner_time = params["winner_time"].to_f
+  @game.winner_time = params["winner_time"]
   @game.save
+  puts "winner time" + @game.winner_time.to_s
   erb :results
 end
